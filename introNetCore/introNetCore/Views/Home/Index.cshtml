@@ -1,0 +1,39 @@
+﻿@model IEnumerable<introNetCore.Models.Product>
+@{
+    Layout = null;
+    
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+
+    @if (ViewBag.Tarih.Hour < 12)
+    {
+        <p>Günaydın</p>
+    }
+    else
+    {
+       <p>İyi günler</p>
+    }
+
+    <p>@ViewBag.Ad bugünün tarihi @ViewBag.Tarih.ToLongDateString()</p>
+
+    <div>
+        @foreach (var item in Model)
+        {
+            <div>
+                <h4>@item.ProductName</h4>
+                <p>@item.Price</p>
+            </div>
+            <hr />
+        }
+        @ViewBag.OlduMu
+    </div>
+</body>
+</html>
