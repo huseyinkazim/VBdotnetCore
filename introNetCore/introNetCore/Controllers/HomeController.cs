@@ -1,4 +1,5 @@
 ﻿using introNetCore.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -33,5 +34,15 @@ namespace introNetCore.Controllers
         {
             return View();
         }
+        [HttpPost]
+        public IActionResult Create(Product product)
+        {
+            if (ModelState.IsValid)
+            {
+                return Redirect("/");
+            }
+            return View();
+        }
+
     }
 }

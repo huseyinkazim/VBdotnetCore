@@ -1,0 +1,30 @@
+﻿@model IEnumerable<Product>
+@{
+    ViewData["Title"] = "Home Page";
+    int satir = 0;
+}
+
+<h3>Sayfa: @ViewBag.Page</h3>
+<div class="row m-2">
+    @foreach (var product in Model)
+    {
+
+        if (satir != 0 && satir % 3 == 0)
+        {
+        @:</div>
+        @:<div class="row m-2">
+        }
+
+        <div class="col-4">
+            <partial name="_ProductCart" model="product"  />
+        </div>
+        satir++;
+    }
+</div>
+<ul>
+    @for (int i = 1; i <= ViewBag.TotalPages; i++)
+    {
+        <li><a asp-action="Index" asp-route-page="@i" asp-controller="Home">@i</a></li>
+    }
+</ul>
+

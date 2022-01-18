@@ -1,18 +1,15 @@
 ﻿
+@model Product
 @{
-    Layout = null;
+    Layout = "_Layout";
 }
 
-<!DOCTYPE html>
+<form action="/Home/Create" method="post">
+    <input type="text" asp-for="ProductName" value="" placeholder="Ürün adı" />
+    <span asp-validation-for="ProductName"></span>
+    <input type="text" asp-for="Price" value="" placeholder="Fiyatı" />
+    <span asp-validation-for="Price"></span>
+    <button type="submit">Ekle</button>
+</form>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Create</title>
-</head>
-<body>
-    <form>
-        <input type="text" name="name" value="" />
-    </form>
-</body>
-</html>
+
