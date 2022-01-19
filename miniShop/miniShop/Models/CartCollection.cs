@@ -8,23 +8,39 @@ namespace miniShop.Models
 {
     public class CartCollection
     {
-        public List<ProductInCard> Products { get; set; }
+        //Dikkat!!! public bir özellik olmazsa serialize edemezsiniz
+        public List<ProductInCard> Products { get; set; } = new List<ProductInCard>();
 
         public void AddProduct(Product product, int quantity)
         {
+            var existingProduct = Products.Find(x => x.Product.Id == product.Id);
+            if (existingProduct != null)
+            {
+                existingProduct.Quantity += quantity;
+            }
+            else
+            {
+                Products.Add(new ProductInCard { Product = product, Quantity = quantity });
+            }
 
         }
         public void RemoveProduct(Product product)
         {
-
+            Products.RemoveAll(x => x.Product.Id == product.Id);
         }
 
-        public void Clear() { }
+        public void Clear()
+        {
+            Products.Clear();
+        }
 
         public decimal TotalPrice()
         {
-            return 0;
+            return Products.Sum(productInCart =>
+            (decimal)productInCart.Product.Price *
+            (decimal)(1 - productInCart.Product.Discount) * productInCart.Quantity);
         }
+
     }
 
     public class ProductInCard

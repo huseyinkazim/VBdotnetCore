@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using miniShop.Business;
 using miniShop.Models;
@@ -32,6 +33,7 @@ namespace miniShop.Controllers
                                             .Skip((page - 1) * totalItemPerPage)
                                             .Take(totalItemPerPage);
 
+            //HttpContext.Session.GetString("myCart");
             //1 -> 0 Skip
             //2 -> 3 Skip
             //3 -> 6 Skip

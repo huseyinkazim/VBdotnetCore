@@ -17,6 +17,7 @@ namespace miniShop.ViewComponents
         }
         public IViewComponentResult Invoke()
         {
+             
             return View(categoryService.GetCategories());
         }
     }

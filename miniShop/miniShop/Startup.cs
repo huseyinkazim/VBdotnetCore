@@ -27,6 +27,8 @@ namespace miniShop
             services.AddControllersWithViews();
             services.AddScoped<IProductService, FakeProductService>();
             services.AddScoped<ICategoryService, FakeCategoryService>();
+
+            services.AddSession();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -45,12 +47,16 @@ namespace miniShop
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
+            app.UseSession();
+
             app.UseRouting();
 
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
+
+               
 
                 endpoints.MapControllerRoute(
                     name: "",
@@ -59,10 +65,11 @@ namespace miniShop
                     );
 
                 endpoints.MapControllerRoute(
-                    name: "",
-                    pattern: "kategori/{categoryName}",
-                    defaults: new { controller = "Home", action = "Index" }
-                    );
+                  name: "",
+                  pattern: "kategori/{categoryName}",
+                  defaults: new { controller = "Home", action = "Index" }
+                  );
+
 
                 endpoints.MapControllerRoute(
                     name: "default",

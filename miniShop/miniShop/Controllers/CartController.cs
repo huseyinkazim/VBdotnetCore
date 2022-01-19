@@ -1,6 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+
 using miniShop.Business;
 using miniShop.Entities;
+using miniShop.Models;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,11 +29,44 @@ namespace miniShop.Controllers
         {
 
             Product product = productService.GetProductById(productId);
-            // TODO 2 Sepete atılan tüm ürünler bir koleksiyonda tutulmalı.
-            // TODO 3 Bu koleksiyon, toplam tutar, ürün çıkarma ve adet güncelleme yeteneklerine sahip olmalı.
-            // TODO 4 Bu koleksiyon da SESSION içinde saklanmalı! Neden? Çünkü herkesin sepeti kendine.
 
-            return Json(product.Name);
+            // TODO 4 Bu koleksiyon da SESSION içinde saklanmalı! Neden? Çünkü herkesin sepeti kendine.
+          
+           
+
+            if (product != null)
+            {
+               
+                var cart = GetCartCollectionInSession();
+                cart.AddProduct(product, 1);
+                SaveSession(cart);
+                return Json(product.Name);
+            }
+
+            return NotFound();
+        }
+
+        private void SaveSession(CartCollection cart)
+        {
+            HttpContext.Session.SetString("myCart", JsonConvert.SerializeObject(cart));
+        }
+
+        private CartCollection GetCartCollectionInSession()
+        {
+            if (HttpContext.Session.GetString("myCart")==null)
+            {
+                CartCollection cartCollection = new CartCollection();
+                var serializeCart = JsonConvert.SerializeObject(cartCollection);
+                HttpContext.Session.SetString("myCart", serializeCart);
+            }
+
+            var serialized = HttpContext.Session.GetString("myCart");
+            return JsonConvert.DeserializeObject<CartCollection>(serialized);
+
+
+
+
+
         }
     }
 }
