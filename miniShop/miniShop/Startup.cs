@@ -27,8 +27,8 @@ namespace miniShop
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            services.AddScoped<IProductService, FakeProductService>();
-            services.AddScoped<ICategoryService, FakeCategoryService>();
+            services.AddScoped<IProductService, ProductService>();
+            services.AddScoped<ICategoryService, CategoryService>();
 
             var connectionString = Configuration.GetConnectionString("db");
             services.AddDbContext<MiniShopDbContext>(opt => opt.UseSqlServer(connectionString));

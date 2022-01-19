@@ -11,7 +11,8 @@ namespace miniShop.Entities
     public class Product
     {
         public int Id { get; set; }
-        [Required]
+        [Required(ErrorMessage ="Ürün adı boş olamaz")]
+        [MinLength(3,ErrorMessage ="En az 3 karakter olmalı")]
         public string Name { get; set; }
         public double? Price { get; set; }
 

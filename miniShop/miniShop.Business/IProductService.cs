@@ -11,5 +11,6 @@ namespace miniShop.Business
     {
         List<Product> GetProducts();
         Product GetProductById(int productId);
+        Product AddProduct(Product product);
     }
 }
