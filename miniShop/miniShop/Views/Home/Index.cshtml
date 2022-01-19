@@ -28,3 +28,25 @@
     }
 </ul>
 
+@section Scripts{ 
+    <script>
+        $(document).ready(function () {
+            $('.cardButton').on('click', function () {
+                let id = $(this).data('id');
+                //alert(id + "id'li ürün eklendi ");
+                $.ajax({
+                    url: 'Cart/AddProduct?productId=' + id,
+                    type: 'GET',
+                    success: function (data) {
+                        alertify.success(data + " isimli ürün sepete eklendi ");
+                    }
+                });
+
+               
+            })
+        });
+    </script>
+}
+
+
+

@@ -10,5 +10,6 @@ namespace miniShop.Business
    public interface IProductService
     {
         List<Product> GetProducts();
+        Product GetProductById(int productId);
     }
 }
