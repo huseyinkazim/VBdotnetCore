@@ -1,0 +1,36 @@
+﻿@model CartCollection
+@{
+    ViewData["Title"] = "Index";
+}
+
+<table class="table table-hover table-striped">
+    <thead>
+        <tr>
+            <th>ürün adı</th>
+            <th>Fiyatı</th>
+            <th>Adet</th>
+            <th>Ara toplam</th>
+            <th></th>
+        </tr>
+      
+       
+    </thead>
+    <tbody>
+        @foreach (var product in Model.Products)
+        {
+            <tr>
+                <td>@product.Product.Name</td>
+                <td>@product.Product.Price</td>
+                <td>@product.Quantity</td>
+                <td>@(product.Quantity * product.Product.Price)</td>
+                <td><button class="btn btn-danger">Sil</button></td>
+            </tr>
+        }
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="5">@Model.TotalPrice() </td>
+        </tr>
+    </tfoot>
+</table>
+

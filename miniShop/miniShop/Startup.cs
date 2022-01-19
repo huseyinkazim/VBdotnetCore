@@ -1,10 +1,12 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using miniShop.Business;
+using miniShop.DataAccess;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,6 +29,9 @@ namespace miniShop
             services.AddControllersWithViews();
             services.AddScoped<IProductService, FakeProductService>();
             services.AddScoped<ICategoryService, FakeCategoryService>();
+
+            var connectionString = Configuration.GetConnectionString("db");
+            services.AddDbContext<MiniShopDbContext>(opt => opt.UseSqlServer(connectionString));
 
             services.AddSession();
         }

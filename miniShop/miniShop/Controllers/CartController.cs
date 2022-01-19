@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 
 using miniShop.Business;
 using miniShop.Entities;
+using miniShop.Extensions;
 using miniShop.Models;
 using Newtonsoft.Json;
 using System;
@@ -22,7 +23,8 @@ namespace miniShop.Controllers
         }
         public IActionResult Index()
         {
-            return View();
+            var collection = GetCartCollectionInSession();
+            return View(collection);
         }
 
         public IActionResult AddProduct(int productId)
@@ -30,8 +32,7 @@ namespace miniShop.Controllers
 
             Product product = productService.GetProductById(productId);
 
-            // TODO 4 Bu koleksiyon da SESSION içinde saklanmalı! Neden? Çünkü herkesin sepeti kendine.
-          
+            // TODO 4 Bu koleksiyon da SESSION içinde saklanmalı! Neden? Çünkü herkesin sepeti kendine.         
            
 
             if (product != null)
@@ -48,20 +49,24 @@ namespace miniShop.Controllers
 
         private void SaveSession(CartCollection cart)
         {
-            HttpContext.Session.SetString("myCart", JsonConvert.SerializeObject(cart));
+            HttpContext.Session.SetJson("myCart", cart);
         }
 
         private CartCollection GetCartCollectionInSession()
         {
-            if (HttpContext.Session.GetString("myCart")==null)
-            {
-                CartCollection cartCollection = new CartCollection();
-                var serializeCart = JsonConvert.SerializeObject(cartCollection);
-                HttpContext.Session.SetString("myCart", serializeCart);
-            }
+            //if (HttpContext.Session.GetString("myCart")==null)
+            //{
+            //    CartCollection cartCollection = new CartCollection();
+            //    var serializeCart = JsonConvert.SerializeObject(cartCollection);
+            //    HttpContext.Session.SetString("myCart", serializeCart);
+            //}
 
-            var serialized = HttpContext.Session.GetString("myCart");
-            return JsonConvert.DeserializeObject<CartCollection>(serialized);
+            //var serialized = HttpContext.Session.GetString("myCart");
+            //return JsonConvert.DeserializeObject<CartCollection>(serialized);
+
+            CartCollection cartCollection = HttpContext.Session.GetJson<CartCollection>("myCart") ?? new CartCollection();
+
+            return cartCollection;
 
 
 
