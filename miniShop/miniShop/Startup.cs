@@ -60,7 +60,8 @@ namespace miniShop
                 app.UseHsts();
             }
 
-            app.UseWelcomePage();
+            // tüm request'i tek bir yere yönlendiren middleware (orta katman): 
+           // app.UseWelcomePage();
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
@@ -73,9 +74,7 @@ namespace miniShop
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
-            {
-
-               
+            {               
 
                 endpoints.MapControllerRoute(
                     name: "",
@@ -88,7 +87,6 @@ namespace miniShop
                   pattern: "kategori/{categoryName}",
                   defaults: new { controller = "Home", action = "Index" }
                   );
-
 
                 endpoints.MapControllerRoute(
                     name: "default",

@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "miniShop.Business", "miniSh
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "miniShop.Entities", "miniShop.Entities\miniShop.Entities.csproj", "{F5D6A518-142F-4865-8160-D4142ECCE316}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "miniShop.DataAccess", "miniShop.DataAccess\miniShop.DataAccess.csproj", "{20CFE194-ACAB-45CA-943B-633F073C24C5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "miniShop.DataAccess", "miniShop.DataAccess\miniShop.DataAccess.csproj", "{20CFE194-ACAB-45CA-943B-633F073C24C5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "miniShop.API", "miniShop.API\miniShop.API.csproj", "{FA33BA1D-04BB-4195-9374-6BBA2840ACB0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{20CFE194-ACAB-45CA-943B-633F073C24C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{20CFE194-ACAB-45CA-943B-633F073C24C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{20CFE194-ACAB-45CA-943B-633F073C24C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA33BA1D-04BB-4195-9374-6BBA2840ACB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA33BA1D-04BB-4195-9374-6BBA2840ACB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA33BA1D-04BB-4195-9374-6BBA2840ACB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA33BA1D-04BB-4195-9374-6BBA2840ACB0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
