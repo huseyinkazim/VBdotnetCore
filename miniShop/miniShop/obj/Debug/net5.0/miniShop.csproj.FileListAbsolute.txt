@@ -156,3 +156,5 @@ C:\Users\turka\source\repos\Kurumsal\Vakıfbank\.NET Core Part II\miniShop\miniS
 C:\Users\turka\source\repos\Kurumsal\Vakıfbank\.NET Core Part II\miniShop\miniShop\bin\Debug\net5.0\miniShop.DataAccess.pdb
 C:\Users\turka\source\repos\Kurumsal\Vakıfbank\.NET Core Part II\miniShop\miniShop\obj\Debug\net5.0\Razor\Views\Products\Index.cshtml.g.cs
 C:\Users\turka\source\repos\Kurumsal\Vakıfbank\.NET Core Part II\miniShop\miniShop\obj\Debug\net5.0\Razor\Views\Products\Create.cshtml.g.cs
+C:\Users\turka\source\repos\Kurumsal\Vakıfbank\.NET Core Part II\miniShop\miniShop\obj\Debug\net5.0\Razor\Views\Users\Login.cshtml.g.cs
+C:\Users\turka\source\repos\Kurumsal\Vakıfbank\.NET Core Part II\miniShop\miniShop\obj\Debug\net5.0\Razor\Views\Users\AccesDenied.cshtml.g.cs

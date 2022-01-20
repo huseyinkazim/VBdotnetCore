@@ -25,6 +25,20 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Cart" asp-action="Index">Sepetim</a>
                         </li>
+                        <li class="nav-item">
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Users" asp-action="Logout">
+                                    Merhaba @User.Identity.Name
+                                    (Çıkış yap)
+                                </a>
+                            }
+                            else
+                            {
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Users" asp-action="Login">Giriş Yap</a>
+                            }
+
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -42,7 +56,7 @@
                 </main>
             </div>
         </div>
-       
+
     </div>
 
     <footer class="border-top footer text-muted">

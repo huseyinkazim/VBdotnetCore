@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -29,11 +30,20 @@ namespace miniShop
             services.AddControllersWithViews();
             services.AddScoped<IProductService, ProductService>();
             services.AddScoped<ICategoryService, CategoryService>();
+            services.AddScoped<IUserService, FakeUserService>();
+
 
             var connectionString = Configuration.GetConnectionString("db");
             services.AddDbContext<MiniShopDbContext>(opt => opt.UseSqlServer(connectionString));
 
+
             services.AddSession();
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+                    .AddCookie(option =>
+                    {
+                        option.LoginPath = "/Users/Login";
+                        option.AccessDeniedPath = "/Users/AccesDenied";
+                    });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -49,6 +59,9 @@ namespace miniShop
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
+            app.UseWelcomePage();
+
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
@@ -56,6 +69,7 @@ namespace miniShop
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

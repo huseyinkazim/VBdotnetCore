@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace miniShop.Controllers
 {
-    [Authorize]
+    [Authorize(Roles ="Admin,Editor")]
     public class ProductsController : Controller
     {
         private IProductService productService;
@@ -21,12 +21,13 @@ namespace miniShop.Controllers
             this.productService = productService;
             this.categoryService = categoryService;
         }
+        
         public IActionResult Index()
         {
 
             return View(productService.GetProducts());
         }
-
+        
         public IActionResult Create()
         {
             ViewBag.Categories = fillCategories();
