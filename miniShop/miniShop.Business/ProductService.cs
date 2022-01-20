@@ -1,4 +1,5 @@
-﻿using miniShop.DataAccess;
+﻿using Microsoft.EntityFrameworkCore;
+using miniShop.DataAccess;
 using miniShop.Entities;
 using System;
 using System.Collections.Generic;
@@ -23,15 +24,32 @@ namespace miniShop.Business
             return product;
         }
 
+        public async Task<int> AddProductAsync(Product product)
+        {
+            await miniShopDbContext.Products.AddAsync(product);
+            var affectedRowCount = await miniShopDbContext.SaveChangesAsync();
+            return affectedRowCount;
+        }
+
         public Product GetProductById(int productId)
         {
             return miniShopDbContext.Products.Find(productId);
 
         }
 
+        public async Task<Product> GetProductByIdAsync(int id)
+        {
+            return await miniShopDbContext.Products.FindAsync(id);
+        }
+
         public List<Product> GetProducts()
         {
             return miniShopDbContext.Products.ToList();
+        }
+
+        public async Task<List<Product>> GetProductsAsync()
+        {
+            return await miniShopDbContext.Products.ToListAsync();
         }
     }
 }

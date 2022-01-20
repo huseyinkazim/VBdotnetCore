@@ -5,6 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="11.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\miniShop.Business.DTO\miniShop.Business.DTO.csproj" />
     <ProjectReference Include="..\miniShop.DataAccess\miniShop.DataAccess.csproj" />
   </ItemGroup>
 

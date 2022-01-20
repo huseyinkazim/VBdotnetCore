@@ -12,5 +12,9 @@ namespace miniShop.Business
         List<Product> GetProducts();
         Product GetProductById(int productId);
         Product AddProduct(Product product);
+
+        Task<List<Product>> GetProductsAsync();
+        Task<Product> GetProductByIdAsync(int id);
+        Task<int> AddProductAsync(Product product);
     }
 }

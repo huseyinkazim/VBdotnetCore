@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "mCRuRcFC1oaoAaaobSU3gXIu98mWn5vPHOBSQXz+RIEhW6NgHXP/aJz5gzEXvU5p4hHEInJTJgDnwE6URVTgVw==",
+  "dgSpecHash": "j9LYo0RShqUxlYfo+ymzLUzDWZsJKWMhDJ/1Yv0yzt2wkA8bCRJrD2zElb3QMBCXQZg1SEzAz4lVzHV8MgubHA==",
   "success": true,
   "projectFilePath": "C:\\Users\\turka\\source\\repos\\Kurumsal\\Vakıfbank\\.NET Core Part II\\miniShop\\miniShop\\miniShop.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\turka\\.nuget\\packages\\automapper\\11.0.0\\automapper.11.0.0.nupkg.sha512",
     "C:\\Users\\turka\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\turka\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\turka\\.nuget\\packages\\microsoft.aspnetcore.razor\\2.2.0\\microsoft.aspnetcore.razor.2.2.0.nupkg.sha512",

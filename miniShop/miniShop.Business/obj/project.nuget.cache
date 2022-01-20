@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "YHalGFa9DpOFAzTbj5LhCKrhHYYUQY95arp3IW+ekG2PNr4Vd6/ZYx4PocfBZpBsnVgKFjYPCc3Z6IZtCgYrKA==",
+  "dgSpecHash": "VN4JekJ9Ul9gcR6CXxESTvE5CY16hiDhWeaTiqnDbn+4mzJxRMULLgVXkzKQaq9GaJb66L30bAezG8dE1rtxlw==",
   "success": true,
   "projectFilePath": "C:\\Users\\turka\\source\\repos\\Kurumsal\\Vakıfbank\\.NET Core Part II\\miniShop\\miniShop.Business\\miniShop.Business.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\turka\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
+    "C:\\Users\\turka\\.nuget\\packages\\automapper\\11.0.0\\automapper.11.0.0.nupkg.sha512",
+    "C:\\Users\\turka\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\turka\\.nuget\\packages\\microsoft.data.sqlclient\\2.0.1\\microsoft.data.sqlclient.2.0.1.nupkg.sha512",
     "C:\\Users\\turka\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\2.0.1\\microsoft.data.sqlclient.sni.runtime.2.0.1.nupkg.sha512",
     "C:\\Users\\turka\\.nuget\\packages\\microsoft.entityframeworkcore\\5.0.13\\microsoft.entityframeworkcore.5.0.13.nupkg.sha512",
