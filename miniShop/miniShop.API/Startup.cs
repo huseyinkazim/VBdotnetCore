@@ -41,6 +41,15 @@ namespace miniShop.API
             services.AddScoped<ICategoryService, CategoryService>();
             var connectionString = Configuration.GetConnectionString("db");
             services.AddDbContext<MiniShopDbContext>(option => option.UseSqlServer(connectionString));
+            services.AddAutoMapper(typeof(RequestMappingProfile));
+
+            services.AddCors(opt => opt.AddPolicy("allow", policyBuilder =>
+            {
+                policyBuilder.AllowAnyHeader();
+                policyBuilder.AllowAnyMethod();
+                policyBuilder.AllowAnyOrigin();
+
+            }));
 
         }
 
@@ -57,6 +66,7 @@ namespace miniShop.API
             app.UseHttpsRedirection();
 
             app.UseRouting();
+            app.UseCors("allow");
 
             app.UseAuthorization();
 

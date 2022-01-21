@@ -35,26 +35,43 @@ namespace miniShop.API.Controllers
         [HttpPost]
         public async Task<IActionResult> AddProduct(AddProductRequest productRequest)
         {
-
-
             if (ModelState.IsValid)
             {
-                //aslında doğru olan; convert işlemini productServis'in yapmasıdır.
-
-                Product product = new Product
-                {
-                    Name = productRequest.Name,
-                    CategoryId = productRequest.CategoryId,
-                    Description = productRequest.Description,
-                    Discount = productRequest.Discount,
-                    ImageUrl = productRequest.ImageUrl,
-                    Price = productRequest.Price
-                };
-                int result = await productService.AddProductAsync(product);
-                return CreatedAtAction(nameof(Get), new { id = product.Id }, product);
+                //aslında doğru olan; convert işlemini productServis'in yapmasıdır.               
+                var result = await productService.AddProductAsync(productRequest);
+                return CreatedAtAction(nameof(Get), new { id = result.Id }, result);
             }
 
             return BadRequest(ModelState);
+
+        }
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Update(int id, UpdateProductRequest request)
+        {
+            if (ModelState.IsValid)
+            {
+                //var existingProduct = productService.GetProductById(id);
+                if (await productService.IsProductExist(id))
+                {
+                    Product updatedProduct = await productService.UpdateProductAsync(request);
+                    return Ok();
+                }
+
+                return NotFound();
+            }
+            return BadRequest(ModelState);
+
+        }
+        [HttpDelete]
+        public async Task<IActionResult> Delete(int id)
+        {
+            if (await productService.IsProductExist(id))
+            {
+                await productService.Delete(id);
+                return Ok();
+
+            }
+            return NotFound();
 
         }
     }

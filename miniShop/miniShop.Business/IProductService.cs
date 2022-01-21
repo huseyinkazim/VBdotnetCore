@@ -1,4 +1,5 @@
-﻿using miniShop.Entities;
+﻿using miniShop.Business.DTO.Requests;
+using miniShop.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +16,11 @@ namespace miniShop.Business
 
         Task<List<Product>> GetProductsAsync();
         Task<Product> GetProductByIdAsync(int id);
-        Task<int> AddProductAsync(Product product);
+        Task<Product> AddProductAsync(AddProductRequest product);
+        Task<Product> UpdateProductAsync(UpdateProductRequest request);
+
+        Task<bool> IsProductExist(int id);
+        Task Delete(int id);
     }
 }
+                           

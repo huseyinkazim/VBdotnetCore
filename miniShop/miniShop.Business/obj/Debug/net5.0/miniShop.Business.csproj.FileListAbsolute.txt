@@ -16,4 +16,3 @@ C:\Users\turka\source\repos\Kurumsal\Vakıfbank\.NET Core Part II\miniShop\miniS
 C:\Users\turka\source\repos\Kurumsal\Vakıfbank\.NET Core Part II\miniShop\miniShop.Business\bin\Debug\net5.0\miniShop.DataAccess.pdb
 C:\Users\turka\source\repos\Kurumsal\Vakıfbank\.NET Core Part II\miniShop\miniShop.Business\bin\Debug\net5.0\miniShop.Business.DTO.dll
 C:\Users\turka\source\repos\Kurumsal\Vakıfbank\.NET Core Part II\miniShop\miniShop.Business\bin\Debug\net5.0\miniShop.Business.DTO.pdb
-C:\Users\turka\source\repos\Kurumsal\Vakıfbank\.NET Core Part II\miniShop\miniShop.Business\obj\Debug\net5.0\miniShop.Business.csproj.CopyComplete

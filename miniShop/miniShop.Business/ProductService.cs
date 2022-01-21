@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using AutoMapper;
+using Microsoft.EntityFrameworkCore;
+using miniShop.Business.DTO.Requests;
 using miniShop.DataAccess;
 using miniShop.Entities;
 using System;
@@ -12,9 +14,12 @@ namespace miniShop.Business
     public class ProductService : IProductService
     {
         private MiniShopDbContext miniShopDbContext;
-        public ProductService(MiniShopDbContext miniShopDbContext)
+        private IMapper mapper;
+
+        public ProductService(MiniShopDbContext miniShopDbContext, IMapper mapper)
         {
             this.miniShopDbContext = miniShopDbContext;
+            this.mapper = mapper;
         }
 
         public Product AddProduct(Product product)
@@ -24,11 +29,20 @@ namespace miniShop.Business
             return product;
         }
 
-        public async Task<int> AddProductAsync(Product product)
+        public async Task<Product> AddProductAsync(AddProductRequest productRequest)
         {
+
+            var product = mapper.Map<Product>(productRequest);
             await miniShopDbContext.Products.AddAsync(product);
-            var affectedRowCount = await miniShopDbContext.SaveChangesAsync();
-            return affectedRowCount;
+            await miniShopDbContext.SaveChangesAsync();
+            return product;
+        }
+
+        public async Task Delete(int id)
+        {
+            var product = await miniShopDbContext.Products.FirstOrDefaultAsync(p => p.Id == id);
+            miniShopDbContext.Products.Remove(product);
+            await miniShopDbContext.SaveChangesAsync();
         }
 
         public Product GetProductById(int productId)
@@ -50,6 +64,20 @@ namespace miniShop.Business
         public async Task<List<Product>> GetProductsAsync()
         {
             return await miniShopDbContext.Products.ToListAsync();
+        }
+
+        public async Task<bool> IsProductExist(int id)
+        {
+            return await miniShopDbContext.Products.AnyAsync(p => p.Id == id);
+        }
+
+        public async Task<Product> UpdateProductAsync(UpdateProductRequest request)
+        {
+            var product = mapper.Map<Product>(request);
+            miniShopDbContext.Update<Product>(product);
+           // miniShopDbContext.Entry<Product>().State = EntityState.
+            await miniShopDbContext.SaveChangesAsync();
+            return product;
         }
     }
 }

@@ -14,6 +14,7 @@ namespace miniShop.Business
         public RequestMappingProfile()
         {
             CreateMap<AddProductRequest, Product>().ReverseMap();
+            CreateMap<UpdateProductRequest, Product>().ReverseMap();
         }
     }
 }

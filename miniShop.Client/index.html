@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="get">Get data</button>,
+    <img src=""/>
+    <ul id="products">
+
+    </ul>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#get').on('click',function () {
+
+                let username ="turkay";
+                let pass = "123";
+                let sendData = btoa(username+":"+pass);
+                console.log('encoded value:',sendData);
+               $.ajax({
+                   url:'https://localhost:44384/Products',
+                   method:'GET',
+                   headers:{
+                    "content-type":"application/json",
+                    "Authorization":"Basic " + sendData
+                   },
+                   success:function(data){
+                       console.log(data);
+                       $.each(data, function (index,element) {
+                          let name = $("<h3>"+element.name+"</h3>");
+                          let image = $(" <img src='"+element.imageUrl+"'/>");  
+                          let p = $("<p>"+element.price+"</p>")
+
+                          let li = $("<li></li>")
+                          li.append(name);
+                          li.append(image);
+                          li.append(p);
+                          $('#products').append(li);
+
+                       })
+                   }
+               }) 
+            });
+        });
+    </script>
+
+</body>
+</html>
