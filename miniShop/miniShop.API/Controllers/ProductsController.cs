@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using miniShop.Business;
 using miniShop.Business.DTO.Requests;
@@ -32,6 +33,7 @@ namespace miniShop.API.Controllers
             return Ok(await productService.GetProductByIdAsync(id));
         }
 
+        [Authorize]
         [HttpPost]
         public async Task<IActionResult> AddProduct(AddProductRequest productRequest)
         {

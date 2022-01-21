@@ -38,7 +38,6 @@ C:\Users\turka\source\repos\Kurumsal\Vakıfbank\.NET Core Part II\miniShop\miniS
 C:\Users\turka\source\repos\Kurumsal\Vakıfbank\.NET Core Part II\miniShop\miniShop.API\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.dll
 C:\Users\turka\source\repos\Kurumsal\Vakıfbank\.NET Core Part II\miniShop\miniShop.API\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 C:\Users\turka\source\repos\Kurumsal\Vakıfbank\.NET Core Part II\miniShop\miniShop.API\bin\Debug\net5.0\Microsoft.IdentityModel.Tokens.dll
-C:\Users\turka\source\repos\Kurumsal\Vakıfbank\.NET Core Part II\miniShop\miniShop.API\bin\Debug\net5.0\Newtonsoft.Json.dll
 C:\Users\turka\source\repos\Kurumsal\Vakıfbank\.NET Core Part II\miniShop\miniShop.API\bin\Debug\net5.0\System.Configuration.ConfigurationManager.dll
 C:\Users\turka\source\repos\Kurumsal\Vakıfbank\.NET Core Part II\miniShop\miniShop.API\bin\Debug\net5.0\System.Diagnostics.DiagnosticSource.dll
 C:\Users\turka\source\repos\Kurumsal\Vakıfbank\.NET Core Part II\miniShop\miniShop.API\bin\Debug\net5.0\System.IdentityModel.Tokens.Jwt.dll
@@ -70,3 +69,4 @@ C:\Users\turka\source\repos\Kurumsal\Vakıfbank\.NET Core Part II\miniShop\miniS
 C:\Users\turka\source\repos\Kurumsal\Vakıfbank\.NET Core Part II\miniShop\miniShop.API\bin\Debug\net5.0\Microsoft.Extensions.Options.dll
 C:\Users\turka\source\repos\Kurumsal\Vakıfbank\.NET Core Part II\miniShop\miniShop.API\bin\Debug\net5.0\Microsoft.Extensions.Primitives.dll
 C:\Users\turka\source\repos\Kurumsal\Vakıfbank\.NET Core Part II\miniShop\miniShop.API\bin\Debug\net5.0\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\turka\source\repos\Kurumsal\Vakıfbank\.NET Core Part II\miniShop\miniShop.API\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
